@@ -11,6 +11,12 @@
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "co": "^4.6.0",
+    "fbjs": "^0.8.0-alpha.3",
+    "fibers": "^1.0.10",
+    "semver": "^5.1.0",
+    "underscore": "^1.8.3",
+    "warning": "^2.1.0"
   }
 }
