@@ -21,14 +21,11 @@ export default class CalendarView extends Component {
   constructor(...args) {
     super(...args);
     this.state = {
-      year: 2016,
+      year: 2014,
       month: 3
     };
     this.handleMonthChange = (event, index, value) => this.setState({month: value});
-    this.handleYearChange = (event, index, value) => {
-      console.log(value);
-      this.setState({year: value});
-    }
+    this.handleYearChange = (event, index, value) => this.setState({year: value});
   }
 
   render() {
