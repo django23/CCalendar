@@ -17,6 +17,8 @@
     "fibers": "^1.0.10",
     "semver": "^5.1.0",
     "underscore": "^1.8.3",
-    "warning": "^2.1.0"
+    "warning": "^2.1.0",
+    "source-map": "^0.5.3",
+    "source-map-support": "^0.4.0"
   }
 }
