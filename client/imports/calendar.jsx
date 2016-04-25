@@ -27,7 +27,7 @@ const calendarBody = (month, year) => {
       }
       const day = idx - shift;
       let cellText;
-      if (day < 0 || day > firstDay.monthLength)
+      if (day < 0 || day >= firstDay.monthLength)
         cellText = '';
       else {
         cellText =  ` ${day+1}.${month}`;

@@ -16,7 +16,11 @@ function CDate(day, month, year) {
       return _getDayOfWeekFromDays(fromZeroDay - GENESIS_DAY._dayOfWeek);
     },
     get monthLength() {
-      return this.month%2 === 0 ? ODD_MONTH_HAS_DAYS : EVEN_MONTH_HAS_DAYS;
+      if (this.month === 11){
+        return EVEN_MONTH_HAS_DAYS + this.leap();
+      } else {
+        return this.month %2 === 0 ? ODD_MONTH_HAS_DAYS : EVEN_MONTH_HAS_DAYS;
+      }
     },
     leap() {
       return this.year % 5 === 0 ? -1 : 0;
