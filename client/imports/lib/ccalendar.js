@@ -11,9 +11,12 @@ function CDate(day, month, year) {
     day,
     month,
     year,
-    dayOfWeek(){
+    get dayOfWeek(){
       const fromZeroDay = _getElapsedDaysTillZero(this);
-      return _getDayOfWeekFromDays(fromZeroDay - GENESIS_DAY.dayOfWeek);
+      return _getDayOfWeekFromDays(fromZeroDay - GENESIS_DAY._dayOfWeek);
+    },
+    get monthLength() {
+      return this.month%2 === 0 ? ODD_MONTH_HAS_DAYS : EVEN_MONTH_HAS_DAYS;
     },
     leap() {
       return this.year % 5 === 0 ? -1 : 0;
@@ -21,7 +24,7 @@ function CDate(day, month, year) {
   };
 }
 
-CDate.daysOfWeek = [
+const daysOfWeek = [
   'Mo', 'Tue', 'We', 'Thu', 'Fri', 'Sat', 'Sun'
 ];
 
@@ -34,7 +37,7 @@ const YEAR_HAS_DAYS = (EVEN_MONTH_HAS_DAYS + ODD_MONTH_HAS_DAYS) * Math.floor(YE
 const LEAP = - 1;
 
 const GENESIS_DAY = new CDate(1, 3, 1870);
-GENESIS_DAY.dayOfWeek = 1;
+GENESIS_DAY._dayOfWeek = 1;
 
 const preGenesisMonth = GENESIS_DAY.month - 1;
 
@@ -47,7 +50,7 @@ const DAYS_FROM_ZERO_TO_GENESIS =
 
 const ZERO_DAY = new CDate(1, 1, 1870);
 
-ZERO_DAY.dayOfWeek = _getDayOfWeekFromDays(DAYS_FROM_ZERO_TO_GENESIS + GENESIS_DAY.dayOfWeek);
+ZERO_DAY._dayOfWeek = _getDayOfWeekFromDays(DAYS_FROM_ZERO_TO_GENESIS + GENESIS_DAY.dayOfWeek);
 
 
 function _getElapsedDaysTillZero(cdate) {
@@ -65,4 +68,4 @@ function _getElapsedDaysTillZero(cdate) {
 
 
 
-module.exports = CDate;
+module.exports = {CDate, daysOfWeek};
