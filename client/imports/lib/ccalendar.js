@@ -1,7 +1,8 @@
 // CCalendar library functions
 
 function _getDayOfWeekFromDays(days) {
-  return days % 7;
+  const res = days % 7
+  return res > 0 ? res : 7 - res;
 }
 
 
