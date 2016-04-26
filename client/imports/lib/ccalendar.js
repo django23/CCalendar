@@ -1,8 +1,12 @@
 // CCalendar library functions
 
 function _getDayOfWeekFromDays(days) {
-  const res = days % 7
-  return res > 0 ? res : 7 - res;
+  const pre = days%7;
+  if (pre < 0) {
+    return 8 +pre;
+  } else {
+    return pre;
+  }
 }
 
 
@@ -13,8 +17,9 @@ function CDate(day, month, year) {
     month,
     year,
     get dayOfWeek(){
-      const fromZeroDay = _getElapsedDaysTillZero(this);
-      return _getDayOfWeekFromDays(fromZeroDay - GENESIS_DAY._dayOfWeek);
+      let shiftFromZeroDay = _getElapsedDaysTillZero(this);
+      shiftFromZeroDay = shiftFromZeroDay - GENESIS_DAY._dayOfWeek;
+      return _getDayOfWeekFromDays(shiftFromZeroDay );
     },
     get monthLength() {
       if (this.month === 11){

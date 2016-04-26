@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Paper from 'material-ui/Paper';
 
 import Calendar from './calendar';
 // App component - represents the whole app
@@ -30,8 +31,8 @@ export default class CalendarView extends Component {
 
   render() {
     return (
-      <div>
-        <div className="row">
+      <Paper>
+        <div className="row" style={{padding:20}}>
           <div>
             <SelectField
               value={this.state.month}
@@ -52,7 +53,7 @@ export default class CalendarView extends Component {
         <div className="row">
           <Calendar month={this.state.month} year={this.state.year}/>
         </div>
-      </div>
+      </Paper>
     );
   }
 }
